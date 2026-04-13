@@ -13,7 +13,9 @@ import com.caso3.practica3Dani.service.TareaService;
 
 import jakarta.validation.Valid;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -42,6 +44,11 @@ public class TareaController {
             return ResponseEntity.status(HttpStatus.CREATED).body("Tarea Creada.");
         }
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("La tarea no se ha creado.");
+    }
+
+    @DeleteMapping("{id}")
+    public String deleteTarea(@PathVariable int id){
+        return tareaService.delete(id);
     }
     
     
