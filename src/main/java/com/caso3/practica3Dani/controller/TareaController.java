@@ -26,6 +26,8 @@ public class TareaController {
             .status(404)
             .body("No hay tareas ingresadas");
         }
+        return ResponseEntity.ok(lista);
     }
+    
     
 }
